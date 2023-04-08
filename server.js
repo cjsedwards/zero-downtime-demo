@@ -9,10 +9,10 @@ const app = express();
 database.initDb()
 
 // Set port
-const port = process.env.PORT || "1337";
+const port = process.env.PORT || "8080";
 app.set("port", port);
 
 app.use('/', routes);
-
+app.use(express.static('public'));
 // Server
 app.listen(port, () => console.log(`Server running on localhost:${port}`));
