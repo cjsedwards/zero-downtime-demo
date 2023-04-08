@@ -7,6 +7,12 @@
     "mongoose": "^7.0.3"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "migrate:create": "node node_modules/.bin/migrate-mongo create -f migrate-mongo-config.js",
+    "migrate:status": "node node_modules/.bin/migrate-mongo status -f migrate-mongo-config.js",
+    "migrate": "node node_modules/.bin/migrate-mongo up -f migrate-mongo-config.js"
+  },
+  "devDependencies": {
+    "migrate-mongo": "^9.0.0"
   }
 }
