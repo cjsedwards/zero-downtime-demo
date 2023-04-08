@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Increment Counter</title>
+    <style>
+        #counterText {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <button onclick="incrementCounter()">Increment Counter</button>
-<p>Current Counter Value: <span id="counterValue">0</span></p>
+<p id="counterText">Current Counter Value: <span id="counterValue"></span></p>
 
 <script>
+    let isCounterShown = false;
+
     function incrementCounter() {
-        fetch('/increment-counter', {
-            method: 'POST',
-        })
+        fetch('/increment-counter', { method: 'POST' })
             .then(response => response.json())
             .then(data => {
                 document.getElementById('counterValue').textContent = data.counter;
+
+                if (!isCounterShown) {
+                    document.getElementById('counterText').style.display = 'block';
+                    isCounterShown = true;
+                }
             });
     }
 </script>
