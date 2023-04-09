@@ -3,32 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Increment Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         #counterText {
             display: none;
+            font-size: 1.5em;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 1em;
+        }
+
+        footer {
+            font-size: 0.8em;
+            text-align: center;
+            padding: 1em;
+            background-color: #f0f0f0;
+        }
+
+        footer a {
+            color: #666;
         }
     </style>
 </head>
 <body>
-<button onclick="incrementCounter()">Increment Counter</button>
-<p id="counterText">Current Counter Value: <span id="counterValue"></span></p>
+    <button onclick="incrementCounter()">Increment Counter</button>
+    <p id="counterText">Current Counter Value: <span id="counterValue"></span></p>
 
-<script>
-    let isCounterShown = false;
+    <script>
+        let isCounterShown = false;
 
-    function incrementCounter() {
-        fetch('/increment-counter', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('counterValue').textContent = data.counter;
+        function incrementCounter() {
+            fetch('/increment-counter', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('counterValue').textContent = data.counter;
 
-                if (!isCounterShown) {
-                    document.getElementById('counterText').style.display = 'block';
-                    isCounterShown = true;
-                }
-            });
-    }
-</script>
+                    if (!isCounterShown) {
+                        document.getElementById('counterText').style.display = 'block';
+                        isCounterShown = true;
+                    }
+                });
+        }
+    </script>
 </body>
 <footer>
     <p>Check out the code for this demo on <a href="https://github.com/cjsedwards/zero-downtime-demo">GitHub</a></p>
