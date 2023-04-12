@@ -4,7 +4,7 @@ class Counter {
 
     constructor(id, count) {
         this.id = id;
-        this.currentValue = count;
+        this.currentValue = count ?? 0;
     }
 
     static Zero() {
@@ -12,7 +12,7 @@ class Counter {
     }
 
     static fromDoc(doc) {
-        return new Counter(doc._id, doc.counter)
+        return new Counter(doc._id, doc.count)
     }
 
     increment() {
@@ -20,7 +20,7 @@ class Counter {
     }
 
     toDoc() {
-        return { counter: this.currentValue };
+        return { count: this.currentValue };
     }
 }
 

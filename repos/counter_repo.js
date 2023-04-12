@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const counterSchema = new Schema({
-    counter: Number
+    count: Number
 });
 
 const { Counter } = require('../model/counter');
