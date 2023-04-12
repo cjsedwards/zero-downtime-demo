@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose;
+
 const counterSchema = new Schema({
-    count: Number
+    counter: Number
 });
+
 const { Counter } = require('../model/counter');
 
 
