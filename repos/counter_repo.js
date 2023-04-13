@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const counterSchema = new Schema({
-    currentValue: {
+    counter: {
         value: Number
     }
 });
@@ -25,7 +25,7 @@ class CounterRepo {
 
     static async save(counter) {
         const doc = await counterModel.findById(counter.id);
-        doc.currentValue = counter.toDoc().currentValue
+        doc.counter = counter.toDoc().counter
         await doc.save();
     }
 }

@@ -11,6 +11,8 @@ router.post("/increment-counter", async (req, res) => {
 
         res.json({ counter: counter.currentValue });
     } catch(e) {
+        console.log(e)
+        console.log(e.stack)
         res.status(500);
     }
 });
