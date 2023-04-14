@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const counterSchema = new Schema({
     counter: {
-        value: Number
+        newValue: Number
     }
 });
 
