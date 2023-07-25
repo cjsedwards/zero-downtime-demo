@@ -9,7 +9,7 @@ router.post("/increment-counter", async (req, res) => {
         counter.increment()
         await CounterRepo.save(counter)
 
-        res.json({ counter: counter.currentValue });
+        res.json({ counter: counter.count });
     } catch(e) {
         console.log(e)
         console.log(e.stack)

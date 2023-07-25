@@ -15,13 +15,17 @@ class Counter {
         return new Counter(doc._id, doc.counter?.currentValue)
     }
 
+    toDoc() {
+        return { counter: { currentValue: this.currentValue } };
+    }
+
     increment() {
         this.currentValue++
     }
 
-    toDoc() {
-        return { counter: { currentValue: this.currentValue } };
-    }
+    get count() { return this.currentValue }
+
+
 }
 
 module.exports = { Counter };
