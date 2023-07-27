@@ -12,11 +12,11 @@ class Counter {
     }
 
     static fromDoc(doc) {
-        return new Counter(doc._id, doc.counter?.currentValue)
+        return new Counter(doc._id, doc.counter?.newValue)
     }
 
     toDoc() {
-        return { counter: { currentValue: this.currentValue } };
+        return { counter: { newValue: this.currentValue } };
     }
 
     increment() {
